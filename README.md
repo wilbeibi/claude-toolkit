@@ -1,9 +1,9 @@
 # Claude Toolkit
 
-A collection of workspace automation tools for [Claude Code](https://code.claude.com). This repository acts as a marketplace, allowing you to install specific tools independently.
+A marketplace of practical skills for programmers who want to extend Claude Code with real, local workflows.
 
 ## Purpose
-This toolkit extends Claude Code with workflows for knowledge management and local automation. It enables the AI agent to interact with local applications like Obsidian and Dayflow, and manage macOS system settings.
+Provide reusable skills you can install individually and adapt for your own setup: Obsidian knowledge work, Dayflow time analysis, and macOS system control. Each skill is short, task‑focused, and designed to be easy to extend.
 
 ## Installation
 
@@ -30,7 +30,7 @@ Once the marketplace is added, you can install specific tools using their names:
 
 ## Available Tools
 
-*   **obsidian**: Interact with your local Obsidian vault. Supports creating, reading, updating, and searching notes via the Local REST API plugin.
+*   **obsidian**: Read and search your local Obsidian vault (API used for advanced filtering and automation; write paths only on explicit request).
 *   **dayflow**: Query and analyze your Dayflow time-tracking database. Generates productivity summaries and timeline reports.
 *   **m-cli**: Control macOS system settings (Dark Mode, WiFi, Battery, Dock) directly from the terminal.
 
