@@ -17,6 +17,8 @@ Run the following command in your Claude Code terminal:
 ### Skills
 Instruction sets that teach Claude how to perform specific tasks.
 *   **Obsidian REST API**: Enables interaction with your local Obsidian vault. Supports creating, reading, updating, and searching notes using the Local REST API plugin.
+*   **Dayflow Review**: Analyze your productivity by querying the Dayflow time-tracking database. Generates daily/weekly summaries and timeline reports.
+*   **m-cli**: Controls macOS system settings (Dark Mode, WiFi, Battery, Dock) directly from the terminal.
 
 ### Commands
 Automated workflows triggered by slash commands.
