@@ -1,35 +1,33 @@
 # Claude Toolkit
 
-A comprehensive toolkit of skills, commands, and utilities for [Claude Code](https://code.claude.com). 
+A collection of skills and commands for [Claude Code](https://code.claude.com).
 
-This **Claude Code Plugin** is designed to supercharge your AI agent with specialized workflows and capabilities.
+## Purpose
+This plugin extends Claude Code with specific workflows, primarily focused on knowledge management and automation. It allows the AI agent to interact with local tools like Obsidian through structured commands and natural language.
 
-## 📦 Installation
-
-To install this toolkit, run the following slash command in your Claude Code terminal:
+## Installation
+Run the following command in your Claude Code terminal:
 
 ```bash
 /plugin install https://github.com/wilbeibi/claude-toolkit
 ```
 
-## 🚀 Usage
+## Contents
 
-Once installed, the toolkit is automatically active.
+### Skills
+Instruction sets that teach Claude how to perform specific tasks.
+*   **Obsidian REST API**: Enables interaction with your local Obsidian vault. Supports creating, reading, updating, and searching notes using the Local REST API plugin.
 
-### 🛠 Slash Commands
-- `/toolkit-help`: Lists all available tools, skills, and commands in this package.
+### Commands
+Automated workflows triggered by slash commands.
+*   `/toolkit-help`: Lists all available tools and commands in this package.
 
-### 🧠 Skills (Natural Language)
-You can invoke these by asking Claude directly:
-- **Example Skill**: "Run the example skill" or "Demonstrate a skill".
+## Structure
+*   `commands/`: Definitions for slash commands.
+*   `skills/`: Markdown files containing skill instructions.
+*   `plugin.json`: Manifest file for plugin registration.
 
-## 📂 Structure
-
-- `commands/`: Custom slash commands (automations, workflows).
-- `skills/`: Prompt-based skills (teaching Claude *how* to do things).
-- `plugin.json`: The manifest file that makes this a installable plugin.
-
-## 🤝 Contributing
-1. Fork this repo.
-2. Add your new skill to `skills/` or command to `commands/`.
-3. Submit a Pull Request!
+## Contributing
+1.  Fork this repository.
+2.  Add new skill files to `skills/` or commands to `commands/`.
+3.  Submit a Pull Request.
