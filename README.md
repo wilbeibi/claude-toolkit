@@ -2,7 +2,7 @@
 
 My junk drawer of non-deterministic scripts:
 
-- **[Obsidian](https://obsidian.md/)**: Read and search your local vault (API used for advanced filtering and automation).
+- **[Obsidian](https://obsidian.md/)**: Read and search your local vault (requires the [Local REST API plugin](https://github.com/coddingtonbear/obsidian-local-rest-api)).
 - **[Dayflow](https://github.com/JerryZLiu/Dayflow)**: Query and analyze your local time-tracking database.
 - **[m-cli](https://github.com/rgcr/m-cli)**: Control macOS system settings (who doesn't want to switch to dark mode in Claude Code?).
 
@@ -10,7 +10,7 @@ My junk drawer of non-deterministic scripts:
 ## Installation
 
 ### 1. Add the Marketplace
-First, In your Claude Code terminal:
+First, in Claude Code terminal:
 
 ```bash
 /plugin marketplace add https://github.com/wilbeibi/claude-toolkit
