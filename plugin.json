@@ -1,0 +1,14 @@
+{
+  "name": "claude-toolkit",
+  "version": "0.1.0",
+  "description": "A comprehensive toolkit of skills, commands, and utilities for Claude Code.",
+  "commands": {
+    "toolkit-help": {
+      "file": "commands/help.md",
+      "description": "List available tools in this toolkit"
+    }
+  },
+  "skills": [
+    "skills/*.md"
+  ]
+}
