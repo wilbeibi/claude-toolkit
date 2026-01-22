@@ -13,10 +13,14 @@ The user must have:
 1. Obsidian installed with the "Local REST API" plugin enabled
 2. The plugin configured and running (typically on https://127.0.0.1:27124)
 3. API key stored in Fish environment variable: `OBSIDIAN_REST_API_KEY`
+4. `uv` installed for dependency management
 
 ## Base Configuration
 
 ```python
+# /// script
+# dependencies = ["requests"]
+# ///
 import os
 import requests
 from urllib.parse import quote
@@ -41,6 +45,9 @@ requests.packages.urllib3.disable_warnings()
 
 **List all notes in vault:**
 ```python
+# /// script
+# dependencies = ["requests"]
+# ///
 response = requests.get(
     f"{BASE_URL}/vault/",
     headers=HEADERS,
@@ -51,6 +58,9 @@ files = response.json()
 
 **Read a note:**
 ```python
+# /// script
+# dependencies = ["requests"]
+# ///
 # Path should be URL-encoded
 note_path = quote("path/to/note.md")
 response = requests.get(
@@ -63,6 +73,9 @@ content = response.text
 
 **Create a new note:**
 ```python
+# /// script
+# dependencies = ["requests"]
+# ///
 note_path = quote("path/to/new-note.md")
 content = "# New Note\n\nContent here"
 
@@ -76,6 +89,9 @@ response = requests.put(
 
 **Update entire note:**
 ```python
+# /// script
+# dependencies = ["requests"]
+# ///
 note_path = quote("path/to/note.md")
 new_content = "# Updated Content\n\nNew text"
 
@@ -89,6 +105,9 @@ response = requests.put(
 
 **Patch/insert content into note:**
 ```python
+# /// script
+# dependencies = ["requests"]
+# ///
 # Insert content at a specific heading
 note_path = quote("path/to/note.md")
 patch_data = {
@@ -107,6 +126,9 @@ response = requests.patch(
 
 **Delete a note:**
 ```python
+# /// script
+# dependencies = ["requests"]
+# ///
 note_path = quote("path/to/note.md")
 response = requests.delete(
     f"{BASE_URL}/vault/{note_path}",
@@ -119,6 +141,9 @@ response = requests.delete(
 
 **Get today's daily note:**
 ```python
+# /// script
+# dependencies = ["requests"]
+# ///
 response = requests.get(
     f"{BASE_URL}/periodic/daily/",
     headers=HEADERS,
@@ -129,6 +154,9 @@ daily_note = response.json()
 
 **Create/update today's daily note:**
 ```python
+# /// script
+# dependencies = ["requests"]
+# ///
 content = "# Daily Note\n\n## Tasks\n- [ ] Task 1"
 response = requests.put(
     f"{BASE_URL}/periodic/daily/",
@@ -140,6 +168,9 @@ response = requests.put(
 
 **Get specific date's note:**
 ```python
+# /// script
+# dependencies = ["requests"]
+# ///
 # Format: YYYY-MM-DD
 date = "2025-01-21"
 response = requests.get(
@@ -151,6 +182,9 @@ response = requests.get(
 
 **Weekly and monthly notes:**
 ```python
+# /// script
+# dependencies = ["requests"]
+# ///
 # Current week
 response = requests.get(
     f"{BASE_URL}/periodic/weekly/",
@@ -170,6 +204,9 @@ response = requests.get(
 
 **Get currently active file:**
 ```python
+# /// script
+# dependencies = ["requests"]
+# ///
 response = requests.get(
     f"{BASE_URL}/active/",
     headers=HEADERS,
@@ -180,6 +217,9 @@ active_file = response.json()
 
 **Update active file:**
 ```python
+# /// script
+# dependencies = ["requests"]
+# ///
 content = "Updated content for active file"
 response = requests.put(
     f"{BASE_URL}/active/",
@@ -193,6 +233,9 @@ response = requests.put(
 
 **Simple search:**
 ```python
+# /// script
+# dependencies = ["requests"]
+# ///
 params = {"query": "search term"}
 response = requests.post(
     f"{BASE_URL}/search/simple/",
@@ -205,6 +248,9 @@ results = response.json()
 
 **Advanced search (Dataview query):**
 ```python
+# /// script
+# dependencies = ["requests"]
+# ///
 query = """
 LIST
 FROM "folder"
@@ -224,6 +270,9 @@ results = response.json()
 
 **List available commands:**
 ```python
+# /// script
+# dependencies = ["requests"]
+# ///
 response = requests.get(
     f"{BASE_URL}/commands/",
     headers=HEADERS,
@@ -234,6 +283,9 @@ commands = response.json()
 
 **Execute a command:**
 ```python
+# /// script
+# dependencies = ["requests"]
+# ///
 command_id = "editor:toggle-checklist-status"
 response = requests.post(
     f"{BASE_URL}/commands/{quote(command_id)}/",
@@ -246,6 +298,9 @@ response = requests.post(
 
 **Open a file in Obsidian:**
 ```python
+# /// script
+# dependencies = ["requests"]
+# ///
 note_path = quote("path/to/note.md")
 response = requests.post(
     f"{BASE_URL}/open/{note_path}",
@@ -261,6 +316,9 @@ response = requests.post(
 Always wrap API calls in try-except blocks:
 
 ```python
+# /// script
+# dependencies = ["requests"]
+# ///
 try:
     response = requests.get(
         f"{BASE_URL}/vault/note.md",
@@ -282,6 +340,9 @@ except requests.exceptions.RequestException as e:
 - Include `.md` extension
 
 ```python
+# /// script
+# dependencies = ["requests"]
+# ///
 from urllib.parse import quote
 
 # Correct
@@ -296,6 +357,9 @@ path = quote("Projects/My Project (2025)/notes.md")
 When sending content, encode as UTF-8 bytes:
 
 ```python
+# /// script
+# dependencies = ["requests"]
+# ///
 content = "# Note with émojis 🎉"
 response = requests.put(
     url,
@@ -310,6 +374,9 @@ response = requests.put(
 Before making requests, verify the API is accessible:
 
 ```python
+# /// script
+# dependencies = ["requests"]
+# ///
 def check_obsidian_api():
     try:
         response = requests.get(
@@ -332,6 +399,9 @@ if not check_obsidian_api():
 ### Create a new note with template
 
 ```python
+# /// script
+# dependencies = ["requests"]
+# ///
 def create_note_from_template(path, title, tags=None):
     tags = tags or []
     tag_str = " ".join(f"#{tag}" for tag in tags)
@@ -362,6 +432,9 @@ tags: {tags}
 ### Append to daily note
 
 ```python
+# /// script
+# dependencies = ["requests"]
+# ///
 def append_to_daily_note(content):
     # Get current daily note
     response = requests.get(
@@ -385,6 +458,9 @@ def append_to_daily_note(content):
 ### Search and update notes
 
 ```python
+# /// script
+# dependencies = ["requests"]
+# ///
 def update_notes_matching(search_term, old_text, new_text):
     # Search for notes
     results = requests.post(
@@ -411,6 +487,71 @@ def update_notes_matching(search_term, old_text, new_text):
             data=updated.encode('utf-8'),
             verify=False
         )
+```
+
+## Natural Language Search Handlers
+
+When the user asks to "find notes about X from [time period]" or similar date-based queries:
+
+1.  **Interpret the Date**: Use Python to calculate the specific start/end dates from the natural language (e.g., "last week", "yesterday", "Oct 2024").
+2.  **Fetch & Filter Strategy**:
+    *   First, use `/search/simple` with the topic keyword to get a list of candidate files.
+    *   Second, iterate through the results and fetch their content/metadata.
+    *   Third, parse the date from either the file's Frontmatter (e.g., `created`, `date`, `creation_date`) OR the file's last modified time if frontmatter is missing.
+    *   Finally, filter the list against the calculated date range in memory.
+
+### Example: Filter by Date Range
+
+```python
+# /// script
+# dependencies = ["requests"]
+# ///
+from datetime import datetime, timedelta
+
+def search_notes_by_date_range(query, start_date, end_date):
+    # 1. Search for keywords
+    search_response = requests.post(
+        f"{BASE_URL}/search/simple/",
+        headers=HEADERS,
+        json={"query": query},
+        verify=False
+    )
+    candidates = search_response.json()
+    
+    matches = []
+    
+    # 2. Iterate and filter
+    for note in candidates:
+        # Fetch full note content
+        note_content = requests.get(
+            f"{BASE_URL}/vault/{quote(note['path'])}",
+            headers=HEADERS,
+            verify=False
+        ).text
+        
+        # Parse date from Frontmatter (simplified example)
+        # You should likely use a yaml parser or regex here
+        # This example assumes a 'created: YYYY-MM-DD' field
+        created_date = None
+        for line in note_content.split('\n')[:20]:
+            if line.startswith('created:'):
+                try:
+                    date_str = line.split(':', 1)[1].strip()
+                    created_date = datetime.strptime(date_str, '%Y-%m-%d')
+                    break
+                except:
+                    pass
+        
+        # Fallback: Check if filename contains date (YYYY-MM-DD)
+        if not created_date:
+           # logic to parse date from filename...
+           pass
+
+        # 3. Compare dates
+        if created_date and start_date <= created_date <= end_date:
+            matches.append(note)
+            
+    return matches
 ```
 
 ## Troubleshooting
@@ -444,6 +585,9 @@ def update_notes_matching(search_term, old_text, new_text):
 For complete API documentation including all endpoints and parameters, fetch the OpenAPI spec:
 
 ```python
+# /// script
+# dependencies = ["requests"]
+# ///
 response = requests.get(
     f"{BASE_URL}/openapi.yaml",
     headers=HEADERS,

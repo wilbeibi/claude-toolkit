@@ -469,6 +469,9 @@ When user wants insights:
 ## SQL Connection Example
 
 ```python
+# /// script
+# dependencies = []
+# ///
 import sqlite3
 from pathlib import Path
 
