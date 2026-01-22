@@ -1,35 +1,45 @@
 # Claude Toolkit
 
-A collection of skills and commands for [Claude Code](https://code.claude.com).
+A collection of workspace automation tools for [Claude Code](https://code.claude.com). This repository acts as a marketplace, allowing you to install specific tools independently.
 
 ## Purpose
-This plugin extends Claude Code with specific workflows, primarily focused on knowledge management and automation. It allows the AI agent to interact with local tools like Obsidian through structured commands and natural language.
+This toolkit extends Claude Code with workflows for knowledge management and local automation. It enables the AI agent to interact with local applications like Obsidian and Dayflow, and manage macOS system settings.
 
 ## Installation
-Run the following command in your Claude Code terminal:
+
+### 1. Add the Marketplace
+First, add this repository as a marketplace in your Claude Code terminal:
 
 ```bash
-/plugin install https://github.com/wilbeibi/claude-toolkit
+/plugin marketplace add https://github.com/wilbeibi/claude-toolkit
 ```
 
-## Contents
+### 2. Install Individual Tools
+Once the marketplace is added, you can install specific tools using their names:
 
-### Skills
-Instruction sets that teach Claude how to perform specific tasks.
-*   **Obsidian REST API**: Enables interaction with your local Obsidian vault. Supports creating, reading, updating, and searching notes using the Local REST API plugin.
-*   **Dayflow Review**: Analyze your productivity by querying the Dayflow time-tracking database. Generates daily/weekly summaries and timeline reports.
-*   **m-cli**: Controls macOS system settings (Dark Mode, WiFi, Battery, Dock) directly from the terminal.
+```bash
+# Install Obsidian integration
+/plugin install obsidian@wilbeibi-toolkit
 
-### Commands
-Automated workflows triggered by slash commands.
-*   `/toolkit-help`: Lists all available tools and commands in this package.
+# Install Dayflow review tools
+/plugin install dayflow@wilbeibi-toolkit
+
+# Install macOS system tools
+/plugin install m-cli@wilbeibi-toolkit
+```
+
+## Available Tools
+
+*   **obsidian**: Interact with your local Obsidian vault. Supports creating, reading, updating, and searching notes via the Local REST API plugin.
+*   **dayflow**: Query and analyze your Dayflow time-tracking database. Generates productivity summaries and timeline reports.
+*   **m-cli**: Control macOS system settings (Dark Mode, WiFi, Battery, Dock) directly from the terminal.
 
 ## Structure
-*   `commands/`: Definitions for slash commands.
-*   `skills/`: Markdown files containing skill instructions.
-*   `plugin.json`: Manifest file for plugin registration.
+*   `.claude-plugin/`: Marketplace registration and metadata.
+*   `plugins/`: Individual tool packages, each containing its own `plugin.json` and `skills/`.
 
 ## Contributing
 1.  Fork this repository.
-2.  Add new skill files to `skills/` or commands to `commands/`.
-3.  Submit a Pull Request.
+2.  Add a new tool directory in `plugins/`.
+3.  Register the new tool in `.claude-plugin/marketplace.json`.
+4.  Submit a Pull Request.

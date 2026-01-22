@@ -1,0 +1,8 @@
+{
+  "name": "obsidian",
+  "version": "0.1.0",
+  "description": "Interact with Obsidian vault via Local REST API.",
+  "skills": [
+    "skills/*.md"
+  ]
+}
