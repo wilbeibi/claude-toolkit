@@ -1,14 +1,16 @@
 # Claude Toolkit
 
-A marketplace of practical skills for programmers who want to extend Claude Code with real, local workflows.
+My junk drawer of non-deterministic scripts:
 
-## Purpose
-Provide reusable skills you can install individually and adapt for your own setup: Obsidian knowledge work, Dayflow time analysis, and macOS system control. Each skill is short, task‑focused, and designed to be easy to extend.
+- **[Obsidian](https://obsidian.md/)**: Read and search your local vault (API used for advanced filtering and automation).
+- **[Dayflow](https://github.com/JerryZLiu/Dayflow)**: Query and analyze your local time-tracking database.
+- **[m-cli](https://github.com/rgcr/m-cli)**: Control macOS system settings (who doesn't want to switch to dark mode in Claude Code?).
+
 
 ## Installation
 
 ### 1. Add the Marketplace
-First, add this repository as a marketplace in your Claude Code terminal:
+First, In your Claude Code terminal:
 
 ```bash
 /plugin marketplace add https://github.com/wilbeibi/claude-toolkit
@@ -27,10 +29,4 @@ Once the marketplace is added, you can install specific tools using their names:
 # Install macOS system tools
 /plugin install m-cli@wilbeibi-toolkit
 ```
-
-## Available Tools
-
-*   **obsidian**: Read and search your local Obsidian vault (API used for advanced filtering and automation; write paths only on explicit request).
-*   **dayflow**: Query and analyze your Dayflow time-tracking database. Generates productivity summaries and timeline reports.
-*   **m-cli**: Control macOS system settings (Dark Mode, WiFi, Battery, Dock) directly from the terminal.
 
