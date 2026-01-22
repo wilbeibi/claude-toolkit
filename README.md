@@ -34,12 +34,3 @@ Once the marketplace is added, you can install specific tools using their names:
 *   **dayflow**: Query and analyze your Dayflow time-tracking database. Generates productivity summaries and timeline reports.
 *   **m-cli**: Control macOS system settings (Dark Mode, WiFi, Battery, Dock) directly from the terminal.
 
-## Structure
-*   `.claude-plugin/`: Marketplace registration and metadata.
-*   `plugins/`: Individual tool packages, each containing its own `plugin.json` and `skills/`.
-
-## Contributing
-1.  Fork this repository.
-2.  Add a new tool directory in `plugins/`.
-3.  Register the new tool in `.claude-plugin/marketplace.json`.
-4.  Submit a Pull Request.
