@@ -1,11 +1,11 @@
 ---
-name: code-review-pike-cox
-description: Code review guidance based on Rob Pike and Russ Cox's philosophy of simplicity, orthogonality, and anti-bloat. Use when reviewing code in any language, conducting design reviews, dependency audits, or complexity analysis. Emphasizes the four root causes of software bloat - feature creep, wrong-layer fixes, dependency explosion, and low quality standards.
+name: code-review-russ-cox
+description: Code review guidance based on Russ Cox's philosophy of simplicity, orthogonality, and anti-bloat. Use when reviewing code in any language, conducting design reviews, dependency audits, or complexity analysis. Emphasizes the four root causes of software bloat - feature creep, wrong-layer fixes, dependency explosion, and low quality standards.
 ---
 
-# Code Review: Pike-Cox Philosophy
+# Code Review: Russ Cox's Philosophy
 
-Apply Rob Pike and Russ Cox's engineering principles to build maintainable software through vigilance and discipline.
+Apply Russ Cox's engineering principles to build maintainable software through vigilance and discipline.
 
 ## Core Philosophy
 
@@ -255,13 +255,9 @@ A good review achieves:
 5. **Composition**: Can existing pieces combine to solve this?
 6. **Cost**: Does benefit exceed 5-year maintenance cost?
 
-## Pike-Cox Wisdom
-
-> "Simplicity is complicated." - Rob Pike
+## Russ Cox's Wisdom
 
 > "A little copying is better than a little dependency." - Go Proverbs
-
-> "The most important property of a program is whether it accomplishes the intention of its user." - Rob Pike
 
 > "Make it correct, make it clear, make it concise, make it fast. In that order." - Wes Dyer
 

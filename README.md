@@ -5,7 +5,7 @@ My junk drawer of non-deterministic scripts:
 - **[Obsidian](https://obsidian.md/)**: Read and search your local vault (requires the [Local REST API plugin](https://github.com/coddingtonbear/obsidian-local-rest-api)).
 - **[Dayflow](https://github.com/JerryZLiu/Dayflow)**: Query and analyze your local time-tracking database.
 - **[m-cli](https://github.com/rgcr/m-cli)**: Control macOS system settings (who doesn't want to switch to dark mode in Claude Code?).
-- **Code Review**: Pike-Cox philosophy for maintainable software.
+- **Code Review**: Russ Cox's philosophy for maintainable software.
 - **Testing**: Guidance on writing effective, maintainable tests.
 
 
