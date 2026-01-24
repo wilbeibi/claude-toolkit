@@ -1,0 +1,8 @@
+{
+  "name": "code-review",
+  "version": "0.1.0",
+  "description": "Code review guidance based on Rob Pike and Russ Cox's philosophy of simplicity and maintainability.",
+  "skills": [
+    "skills/*.md"
+  ]
+}
