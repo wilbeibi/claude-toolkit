@@ -2,7 +2,7 @@
 
 > A trillion-parameter brain to wash my digital dishes.
 
-17 agent skills for **Claude Code** and **Codex**: code review, test writing, documentation, pre-coding planning, codebase onboarding, repo health evaluation, research paper search, skill authoring, browser history recall, macOS automation, and Obsidian note capture and search. Each is a single `SKILL.md` your agent loads on demand; install all of them or just one with `npx skills`.
+19 agent skills for **Claude Code** and **Codex**: code review, test writing, documentation, pre-coding planning, codebase onboarding, evidence-driven investigation, repo health evaluation, research paper search, skill authoring, browser history recall, macOS automation, and Obsidian note capture and search. Each is a single `SKILL.md` your agent loads on demand; install all of them or just one with `npx skills`.
 
 ```bash
 npx skills add wilbeibi/wilbeibi-skills --skill '*'
@@ -25,6 +25,7 @@ npx skills add wilbeibi/wilbeibi-skills --skill '*'
 | [write-docs](skills/write-docs/SKILL.md) | Write or critique codebase prose — READMEs, developer guides and runbooks, CLI text, comments, agent guides, and commit/PR descriptions — with an advisory clarity checker. |
 | [show-me](skills/show-me/SKILL.md) | Answer with a compact visual — call tree, component tree, file tree, pseudocode, type signature, diff, or Mermaid — instead of a wall of prose. Adapted from [humanlayer/skills](https://github.com/humanlayer/skills). |
 | [grok-repo](skills/grok-repo/SKILL.md) | Understand an unfamiliar codebase through a full briefing, scoped dataflow trace, or reconstruction of why and how a feature changed. |
+| [sherlock](skills/sherlock/SKILL.md) | Work an open question like a case: log graded clues, run competing theories through a consistency matrix, kill by evidence, backtrack, converge — for puzzling bugs, reverse-engineering a product from public signals, or "what happened here". |
 | [repo-eval](skills/repo-eval/SKILL.md) | Score a public GitHub repo on momentum (popularity trajectory) and maintenance (how well it is run) via the OSS Insight API and `gh`. |
 | [paper-search](skills/paper-search/SKILL.md) | Find papers across Semantic Scholar, OpenAlex, and arXiv, ranked by impact relative to field and age — so recent work and credible work are told apart from noise. |
 | [web-recap](skills/web-recap/SKILL.md) | Extract browser history (Chrome, Firefox, Safari, Edge, Brave) to find URLs by topic or get visit stats. Adapted from [robzolkos/web-recap](https://github.com/robzolkos/web-recap). |
