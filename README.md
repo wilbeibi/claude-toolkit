@@ -19,6 +19,8 @@ For an uninstalled skill, invoke the router with ordinary language; the target n
 The router can recommend a skill for a generic task, but waits for your selection before fetching or loading its instructions.
 Asking what a skill does does not activate it.
 
+Already installed this repo with `npx skills add … --all` or `load-skill`? See [MIGRATION.md](MIGRATION.md).
+
 ## Skills
 
 | Skill | Description |
@@ -97,7 +99,8 @@ python3 skills/route-skill/scripts/route_skill.py list --refresh
 ```
 
 Updating does not enable additional skills or change other installers' lockfiles.
-Use the original installer to maintain existing copied skills; the router refuses to overwrite them.
+After migration, owned links follow the checkout; use the original installer only for skills that remain as unmanaged copies.
+Hosts still on the old full install should follow [MIGRATION.md](MIGRATION.md).
 
 ## Limits
 
