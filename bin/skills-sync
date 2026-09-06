@@ -1,7 +1,10 @@
 #!/bin/sh
-# Refresh this checkout and repair the symlinks that make linked skills visible to every agent.
-# Which skills are linked is decided per host with `load_skill.py link/unlink`, never by this repo.
+# Refresh this checkout and repair checkout-owned global links.
+# Which skills are linked is decided per host with `route_skill.py link/unlink`, never by this repo.
 set -e
 root=$(cd "$(dirname "$0")/.." && pwd)
-git -C "$root" pull --ff-only -q || echo "skills-sync: pull skipped (not fast-forwardable); links still repaired" >&2
-exec "$root/skills/load-skill/scripts/load_skill.py" sync
+if [ "${1:-}" = "--pull" ]; then
+    git -C "$root" pull --ff-only
+    shift
+fi
+exec python3 "$root/skills/route-skill/scripts/route_skill.py" "${@:-sync}"
