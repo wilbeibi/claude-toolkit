@@ -2,7 +2,7 @@
 
 > A trillion-parameter brain to wash my digital dishes.
 
-21 agent skills for **Claude Code** and **Codex**: code review, test writing, documentation, pre-coding planning, codebase onboarding, evidence-driven investigation, repo health evaluation, research paper search, skill authoring, data visualization, hand-drawn technical illustration, browser history recall, macOS automation, and Obsidian note capture and search. Each is a single `SKILL.md` your agent loads on demand; install all of them or just one with `npx skills`.
+22 agent skills for **Claude Code** and **Codex**: code review, test writing, documentation, pre-coding planning, codebase onboarding, evidence-driven investigation, repo health evaluation, research paper search, skill authoring, data visualization, hand-drawn technical illustration, browser history recall, macOS automation, and Obsidian note capture and search. Each is a single `SKILL.md` your agent loads on demand; install one with `npx skills`, or clone the repo and let [load-skill](skills/load-skill/SKILL.md) pull in whatever the current host or project needs.
 
 ```bash
 npx skills add wilbeibi/wilbeibi-skills --skill '*'
@@ -12,6 +12,7 @@ npx skills add wilbeibi/wilbeibi-skills --skill '*'
 
 | Skill | Description |
 |-------|-------------|
+| [load-skill](skills/load-skill/SKILL.md) | Browse this catalog from any directory, use a skill once without installing it, or link it into the host or the current project; fetches from GitHub when there is no checkout. |
 | [obsidian-search](skills/obsidian-search/SKILL.md) | Search an Obsidian vault three-tier: Meilisearch for topic/fuzzy queries, ripgrep for exact matches, date-aware helper for natural-language dates and tasks. |
 | [obsidian-capture](skills/obsidian-capture/SKILL.md) | Append quick todos (with due dates), log lines, learnings, and reflections to the right section of Obsidian daily and weekly notes; run the separate `#agent-todo` queue. |
 | [test-writing](skills/test-writing/SKILL.md) | Guide effective, maintainable test writing. |
@@ -36,61 +37,36 @@ npx skills add wilbeibi/wilbeibi-skills --skill '*'
 
 ## Install
 
-Install all skills (auto-detects Claude Code or Codex):
-
-```bash
-npx skills add wilbeibi/wilbeibi-skills --skill '*'
-```
-
-Install a single skill:
+Two ways. `npx skills` copies one or all skills into place, per the usual conventions:
 
 ```bash
 npx skills add wilbeibi/wilbeibi-skills --skill test-writing
+npx skills add wilbeibi/wilbeibi-skills --skill '*'
 ```
 
-<details>
-<summary>More install options</summary>
-
-Target a specific agent:
+Or keep one clone and decide per host and per project what to link. The repo does not record which
+machine has which skills; that lives only in the symlinks on each machine.
 
 ```bash
-npx skills add wilbeibi/wilbeibi-skills --skill '*' -a claude-code
-npx skills add wilbeibi/wilbeibi-skills --skill '*' -a codex
-npx skills add wilbeibi/wilbeibi-skills --skill '*' -a claude-code codex
+git clone https://github.com/wilbeibi/wilbeibi-skills ~/src/wilbeibi-skills
+lsk=~/src/wilbeibi-skills/skills/load-skill/scripts/load_skill.py
+$lsk link load-skill                # the only skill worth linking everywhere
+$lsk link code-review write-docs    # global on this host: ~/.agents/skills + Claude/Codex/Pi/Hermes dirs
+cd ~/some/project && $lsk link -p dataviz   # this project only: ./.agents/skills, ./.claude/skills
+$lsk list                           # * global here, + this project, blank = loadable on demand
+$lsk get sketch-concept             # path to use a skill once; installs nothing
 ```
 
-Install globally (all projects) instead of the current project only:
-
-```bash
-npx skills add wilbeibi/wilbeibi-skills --skill '*' --global
-```
-
-List available skills before installing:
-
-```bash
-npx skills add wilbeibi/wilbeibi-skills --list
-```
-
-By default, `skills add` symlinks skill files so local edits propagate automatically. Use `--copy` for a detached snapshot.
-
-</details>
+With `load-skill` linked, an agent working anywhere can `list` the catalog, `get` a skill for one task,
+or `link -p` it for the project, without touching the global set. `get` also works with no clone at all:
+it fetches a tarball of `main` and caches it for a day.
 
 ## Update
 
 ```bash
-npx skills update
+bin/skills-sync        # git pull --ff-only, then repair the agent-dir links; policy stays on the host
+npx skills update      # for skills installed via npx
 ```
-
-<details>
-<summary>More update options</summary>
-
-```bash
-npx skills update --global          # global installs only
-npx skills update --project         # project installs only
-npx skills update test-writing      # one skill
-```
-
-</details>
 
 ## Layout
 
@@ -98,8 +74,9 @@ Each skill lives in `skills/<name>/SKILL.md`. Supporting scripts and reference d
 
 ## Validation
 
-Check skill frontmatter before pushing:
+Check skill frontmatter and script tests before pushing (CI runs the same):
 
 ```bash
 uv run scripts/check_skill_frontmatter.py
+python3 skills/load-skill/scripts/test_load_skill.py
 ```

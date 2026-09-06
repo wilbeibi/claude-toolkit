@@ -26,3 +26,6 @@ jobs:
 
       - name: Test repository archaeology report
         run: bash skills/grok-repo/scripts/test_archaeology.sh
+
+      - name: Test load-skill
+        run: python3 skills/load-skill/scripts/test_load_skill.py
